@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WEB 200 Fundamentals of Web Development</title>
+        
+        <link href="../global.css" type="text/css" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+        <meta name="description" content="Assignment 2.3 - Values and Variables">
+        <meta name="author" content="Angela Martin">
+        <meta name="robots" content="nofollow">
+        <meta http-equiv="pragma" content="no-cache">
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="app-header">Exercise 2.2 - Hello JavaScript</h1>
+
+            <button id="btnMyCourse" onclick="myFunction()">What course am I taking?</button>
+   
+
+            <p>You are now in Martin’s world!</p>
+
+            <p id="txtMyWorld"></p>
+
+            <script>
+                function myFunction() {
+                alert("localhost:63342 says WEB 231 - Enterprise JavaScript I");
+                }
+
+                document.getElementById("btnMyCourse").addEventListener("click", function() {
+                document.getElementById("txtMyWorld").innerHTML = "You are now in Martin’s world!";
+                });
+            </script>
+
+            <a class="return-home" target="_blank" href="https://atm951999.github.io/web-231/">Return</a>
+
+        </div>        
+    </body>
+
+</html>
