@@ -62,3 +62,16 @@
 .form-field {
     padding: 20px;
 }
+
+.return-home {
+    color: #4F3674;
+    text-decoration: none;
+}
+
+.return-home a:hover {
+    background-color: #D6A800;
+}
+
+.return-home a:visited {
+    color: #3C275A;
+}
