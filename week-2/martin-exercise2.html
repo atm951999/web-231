@@ -1,37 +1,45 @@
+<!--
+    Title: martin-exercise2.html
+    Author: Angela Martin
+    Date: 01/16/2021
+    Description: Exercise 2.2 - Hello JavaScript.
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+    <!-- Document Header information. -->
     <head>
-        <title>WEB 231 – Enterprise JavaScript I</title>
-        
-        <link href="../global.css" type="text/css" rel="stylesheet">
-        
+        <title>WEB 231 – Enterprise JavaScript I</title>        
+        <link href="../global.css" type="text/css" rel="stylesheet">        
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
-        <meta name="description" content="Assignment 2.3 - Values and Variables">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="description" content="Assignment 2.2 - Hello JavaScript">
         <meta name="author" content="Angela Martin">
         <meta name="robots" content="nofollow">
-        <meta http-equiv="pragma" content="no-cache">
+        
     </head>
+
     <body>
+        <!-- This is the application container. -->
         <div id="container">
             <h1 class="app-header">Exercise 2.2 - Hello JavaScript</h1>
-
-            <button id="btnMyCourse" onclick="myFunction()">What course am I taking?</button>
-   
-
-            <p>You are now in Martin’s world!</p>
-
+            <!-- Create button, on click display alert modal "localhost:63342 says WEB 231 - Enterprise JavaScript I?" -->
+            <button id="btnMyCourse" onclick="myFunction()">What course am I taking?</button>   
+            <!-- Create paragraph place -->
             <p id="txtMyWorld"></p>
-
+            <!-- JavaScript. -->
             <script>
                 function myFunction() {
+                // Alert message that will be displayed.
                 alert("localhost:63342 says WEB 231 - Enterprise JavaScript I");
                 }
-
+                //Add event listener to listen for click.
                 document.getElementById("btnMyCourse").addEventListener("click", function() {
+                // Displays "You are now in Martin's world!".
                 document.getElementById("txtMyWorld").innerHTML = "You are now in Martin’s world!";
                 });
             </script>
-
+            <!-- Link to landing page - opens in new tab. -->
             <a class="return-home" target="_blank" href="https://atm951999.github.io/web-231/">Return</a>
 
         </div>        

@@ -1,3 +1,11 @@
+/**
+    Title: martin-payroll.css
+    Author: Angela Martin
+    Date: 01/16/2021
+    Description: Styling for the martin-payroll.html file.
+ */
+
+ /** Styling for the unordered lists borders. */
 ul {
     border: dotted 1px red;
 }
