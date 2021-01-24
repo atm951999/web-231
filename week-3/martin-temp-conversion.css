@@ -1,0 +1,12 @@
+/**
+    Title: martin-temp-conversion.css
+    Author: Angela Martin
+    Date: 01/23/2021
+    Description: Styling for WEB 231 martin-temp-conversion.html file.
+ */
+
+ /** Styling for the result id. */
+#result {
+    text-align: center;
+    font-size: 28px;
+}
