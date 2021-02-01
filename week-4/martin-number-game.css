@@ -1,0 +1,12 @@
+/**
+    Title: martin-number-games.css
+    Author: Angela Martin
+    Date: 01/30/2021
+    Description: Styling for WEB 231 martin-number-games.html file.
+ */
+
+ /** Styling for the result id. */
+ #results {
+    text-align: center;
+    font-size: 28px;
+}

@@ -1,8 +1,8 @@
 <!--
-    Title: martin-temp-conversion.html
+    Title: martin-number-game.html
     Author: Angela Martin
-    Date: 01/23/2021
-    Description: Assignment 3.2 html file.
+    Date: 01/30/2021
+    Description: Assignment 4.2 html file.
 -->
 
 <!DOCTYPE html>
@@ -12,26 +12,26 @@
         <title>WEB 231 – Enterprise JavaScript I</title>        
         
         <link href="../global.css" type="text/css" rel="stylesheet">
-        <link href="../week-3/martin-temp-conversion.css" type="text/css" rel="stylesheet">
+        <link href="martin-number-game.css" type="text/css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet"> 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="description" content="Assignment 3.2 - Temperature Conversion App">
+        <meta name="description" content="Assignment 4.2 - Number Guessing Game">
         <meta name="author" content="Angela Martin">
         <meta name="robots" content="nofollow">        
     </head>
 
-    <body>
+    <body onload="pageLoad()">
         <!-- This is the application container. -->
         <div id="container">
             <!-- H1 Title. -->
-            <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+            <h1 class="app-header">Welcome to the numbers game!</h1>
             <!-- Form container. -->
             <div id="form-example">
                 <!-- Create card. -->
                 <div class="card">
                     <!-- Card title. -->
-                    <div class="card-title">Fahrenheit to Celsius Converter</div>
+                    <div class="card-title">Pick a number between 1 and 10</div>
                         
                         <div class="card-content">
 
@@ -39,13 +39,13 @@
 
                                 <div class="form-field"> 
                                     <!-- Label information. -->
-                                    <label id="form-field" for="txtFahrenheit">Fahrenheit Value</label>
-                                    <input type="text" name="txtFahrenheit" id="txtFahrenheit" value="result">
+                                    <label id="form-field" for="txtMyNumber">Guess the number:</label>
+                                    <input type="text" name="txtMyNumber" id="txtMyNumber">
                                 </div>
 
                                 <div class="form-field">
                                     <!-- Button information. -->
-                                    <button onclick="conversion()" type="button" class="btn btn-primary full-width" id="btn">Convert Temperature</button>
+                                    <button onclick="generateRandom()" type="button" class="btn btn-primary full-width" id="btnSubmit">Submit</button>
                                 </div>
 
                             </div>    
@@ -59,29 +59,39 @@
             <!-- Create card. -->
             <div class="card">
                 <!-- Card title. -->
-                <div class="card-title">Conversion Results</div>
+                <div class="card-title">Results</div>
                 <!-- Where the result is displayed from the conversion formula. -->
-                <div class="card-content" id="result">
-                    
-                </div>
-               
-
+                <div class="card-content" id="results"></div>
             </div>
                 <br>
-                
                 <!-- Link to the Landing Page. -->
                 <div>
                     <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
                 </div>
 
         </div>
-            <!-- JavaScript to convert fahrenheit to celsius. -->
+            <!--  -->
+            
+
             <script>
-              function conversion() {
-                  let fahrenheit = document.getElementById("txtFahrenheit").value;
-                  let celsius = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2);
-                  document.getElementById('result').innerHTML = celsius;                
-              }
+                let results;
+                const rnd = Math.floor((Math.random() * 10) + 1);
+                function generateRandom() {
+                    let myNumber = document.getElementById("txtMyNumber").value;
+                   
+
+                    if (myNumber > rnd) {
+                        results = "The number is less than " + myNumber
+                    }
+                    else if (myNumber < rnd) {
+                        results = "The number is greater than " + myNumber
+                    }
+                    else  
+                        results = "Congratulations! You picked the correct number!";
+                    document.getElementById("results").innerHTML = results
+
+                }
+              
             </script>
     </body>
 
