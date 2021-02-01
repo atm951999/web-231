@@ -10,7 +10,7 @@
     font-family: 'Oswald', Verdana, Arial, sans-serif;
 }
 
-/** I added this because it was absent from everything and documentation was calling for it. */
+/** Styling for the app-header class.*/
  .app-header {
      text-align: center;
      font-weight: 400;
@@ -18,8 +18,7 @@
 
  /** Adds box-shadow styling to the card class. */
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-               
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);               
     transition: 0.3s;
 }
 

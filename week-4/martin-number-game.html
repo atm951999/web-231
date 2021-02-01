@@ -45,13 +45,11 @@
 
                                 <div class="form-field">
                                     <!-- Button information. -->
-                                    <button onclick="generateRandom()" type="button" class="btn btn-primary full-width" id="btnSubmit">Submit</button>
+                                    <button onclick="getRandom()" type="button" class="btn btn-primary full-width" id="btnSubmit">Submit</button>
                                 </div>
-
                             </div>    
                         </div>
                 </div>
-
             </div>
         </div>
         <!-- Form container. -->
@@ -60,7 +58,7 @@
             <div class="card">
                 <!-- Card title. -->
                 <div class="card-title">Results</div>
-                <!-- Where the result is displayed from the conversion formula. -->
+                <!-- Where the results are displayed. -->
                 <div class="card-content" id="results"></div>
             </div>
                 <br>
@@ -68,31 +66,29 @@
                 <div>
                     <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
                 </div>
-
         </div>
-            <!--  -->
-            
-
+            <!-- JavaScript for Number Game  -->
             <script>
+                // Declare results variable.  
                 let results;
+                // Declare rnd variable and generate random number from 1 - 10.
                 const rnd = Math.floor((Math.random() * 10) + 1);
-                function generateRandom() {
+                // Get random number.
+                function getRandom() {
                     let myNumber = document.getElementById("txtMyNumber").value;
-                   
-
+                   // Display if the number is less than the random number.
                     if (myNumber > rnd) {
                         results = "The number is less than " + myNumber
                     }
+                    // Display if the number is greater than the random number.
                     else if (myNumber < rnd) {
                         results = "The number is greater than " + myNumber
                     }
+                    // Display if the number is equal to the random number.
                     else  
                         results = "Congratulations! You picked the correct number!";
                     document.getElementById("results").innerHTML = results
-
-                }
-              
+                }              
             </script>
     </body>
-
 </html>
