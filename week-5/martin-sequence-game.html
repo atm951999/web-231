@@ -1,0 +1,116 @@
+<!--
+    Title: martin-sequence-game.html
+    Author: Angela Martin
+    Date: 02/04/2021
+    Description: Assignment 5.2 html file.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Document Header information. -->
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>        
+        
+        <link href="../global.css" type="text/css" rel="stylesheet">
+        <link href="martin-sequence-game.css" type="text/css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="description" content="Assignment 5.2 - Sequence Game">
+        <meta name="author" content="Angela Martin">
+        <meta name="robots" content="nofollow">        
+    </head>
+
+    <body onload="pageLoad()">
+        <!-- This is the application container. -->
+        <div id="container">
+            <!-- H1 Title. -->
+            <h1 class="app-header">Welcome to the sequence game!</h1>
+            <!-- Form container. -->
+            <div id="form-example">
+                <!-- Create card. -->
+                <div class="card">
+                    <!-- Card title. -->
+                    <div class="card-title">Sequence Selection Form</div>
+                        
+                        <div class="card-content">
+
+                            <div class="form">
+
+                                <div class="form-field"> 
+                                    <!-- Label information. -->
+                                    <label id="form-field" for="sequence">Choose a number sequence:</label>
+                                    <select class="drop-down-menu" id="sequence">
+                                        <option value="select">--Select--</option>
+                                        <option value="fibonacci">Fibonacci Sequence</option>
+                                        <option value="even">Even Numbers</option>
+                                        <option value="odd">Odd Numbers</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <!-- Button information. -->
+                                    <button onclick="sequence()" type="button" class="btn btn-primary full-width" id="btnDisplaySequence">Display Sequence</button>
+                                </div>
+                            </div>    
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form container. -->
+        <div id="form-results-example">
+            <!-- Create card. -->
+            <div class="card">
+                <!-- Card title. -->
+                <div class="card-title">Sequence Results</div>
+                <!-- Where the results are displayed. -->
+                <div class="card-content" id="results"></div>
+            </div>
+                <br>
+                <!-- Link to the Landing Page. -->
+                <div>
+                    <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
+                </div>
+        </div>
+            <!-- JavaScript for Sequence Game  -->
+            <script>                
+                function sequence() {
+                    let choice = document.getElementById("sequence").value;
+                    // If the choice is select make an alert.
+                    if (choice === "select") {          
+                    alert("Invalid selection, please try again!");
+                    }
+                    // If the choice is fibonacci a while loop invokes and builds the Fibonacci Sequence Text string while the numbers are less than 40.
+                    else if (choice === "fibonacci") {
+                        let num1 = 0;
+                        let num2 = 1;
+                        let next;
+                        let fibonacciSequenceText = "" + num1 + ", " + num2 + ", ";
+                        while(num1 + num2 < 40) {
+                            next = num1 + num2;
+                            num1 = num2;
+                            num2 = next;
+                            fibonacciSequenceText += num2 + ", ";
+                        }document.getElementById("results").innerHTML = fibonacciSequenceText.slice(0, -2);
+                        //If the choice is even a do while loop invokes creating a string of even numbers less than 20.
+                    }else if (choice === "even") {
+                        let num1 = 2;
+                        let evenText = num1 + ", ";
+                        do
+                        {                            
+                            num1 = num1 + 2;
+                            evenText += num1 + ", ";
+                        }while(num1 < 20)
+                        document.getElementById("results").innerHTML = evenText.slice(0, -2);
+                    }else {
+                        //If all else fails it creates a string of odd numbers less than 20.
+                        let oddText = ""; 
+                        for (let num1 = 1; num1 < 20; num1 += 2) {
+                            oddText += num1 + ", ";
+                        }
+                        document.getElementById("results").innerHTML = oddText.slice(0, -2);                    
+                    }
+                }   
+            </script>
+    </body>
+</html>

@@ -76,6 +76,15 @@
     color: #4F3674;
 }
 
+.drop-down-menu {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 /** Styling for the input class. */
 .input {
     padding: 12px 20px;

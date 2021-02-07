@@ -1,0 +1,11 @@
+/**
+    Title: martin-sequence-games.css
+    Author: Angela Martin
+    Date: 01/30/2021
+    Description: Styling for WEB 231 martin-sequence-games.html file.
+ */
+
+ /** Styling for the results id. */
+ #results {
+    text-align: center;
+    font-size: 28px;
