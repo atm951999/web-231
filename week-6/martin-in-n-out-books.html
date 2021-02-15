@@ -1,0 +1,194 @@
+<!--
+    Title: martin-in-n-out-books.html
+    Author: Angela Martin
+    Date: 02/11/2021
+    Description: Assignment 6.2 html file.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Document Header information. -->
+    <head>
+        <title>WEB 231 – Enterprise JavaScript I</title>        
+        
+        <link href="../global.css" type="text/css" rel="stylesheet">
+        <link href="martin-in-n-out-books.css" type="text/css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="description" content="Assignment 6.2 - In-N-Out-Books">
+        <meta name="author" content="Angela Martin">
+        <meta name="robots" content="nofollow">        
+    </head>
+
+    <body onload="pageLoad()">
+        <!-- This is the application container. -->
+        <div id="container">
+            <!-- H1 Title. -->
+            <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+            <!-- Form container. -->
+            <div id="form-example">
+                <!-- Create card. -->
+                <div class="card">
+                    <!-- Card title. -->
+                    <div class="card-title">My Favorites</div>
+                        
+                        <div class="card-content">
+
+                            <div class="form">
+
+                                <div class="form-field"> 
+                                    <!-- Label information. -->
+                                    <label id="form-field">Choose a listing:</label>
+                                    <select class="drop-down-menu" id="favoriteList">
+                                        <option value="select">--Select--</option>
+                                        <option value="books">Top 3 Favorite Books</option>
+                                        <option value="authors">Top 3 Favorite Authors</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <!-- Button information. -->
+                                    <button onclick="displayListing()" type="button" class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                                </div>
+                            </div>    
+                        </div>
+                </div>
+                 <br>
+                <!-- Link to the Landing Page. -->
+                <div>
+                    <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
+                </div>
+            </div>            
+        </div>        
+        <!-- Form container. -->
+        <div id="form-results-example">
+            <!-- Create card. -->
+            <div class="card" id="favorite-books">
+                <!-- Card title. -->
+                <div class="card-title">Top 3 Favorite Books</div>
+                <!-- Where the results are displayed. -->
+                <div class="card-content" id="books">
+                    <table>
+                        <tr>
+                          <th>ISBN</th>
+                          <th>Title</th>
+                          <th>Pages</th>
+                        </tr>
+                        <tr>
+                          <td id = "txtClanOfTheCaveBearISBN"></td>
+                          <td id = "txtClanOfTheCaveBearTitle"></td>
+                          <td id = "txtClanOfTheCaveBearPages"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtHalfBloodPrinceISBN"></td>
+                          <td id = "txtHalfBloodPrinceTitle"></td>
+                          <td id = "txtHalfBloodPrincePages"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtHelloGorgeousISBN"></td>
+                          <td id = "txtHelloGorgeousTitle"></td>
+                          <td id = "txtHelloGorgeousPages"></td>
+                        </tr>                        
+                      </table>                        
+                </div>
+            </div>
+            <div class="card" id="favorite-authors">
+                <!-- Card title. -->
+                <div class="card-title">Top 3 Favorite Authors</div>
+                <!-- Where the results are displayed. -->
+                <div class="card-content" id="authors">
+                    <table>
+                        <tr>
+                          <th>Name</th>
+                          <th>Genre</th>
+                        </tr>
+                        <tr>
+                          <td id = "txtJeanMAuelName"></td>
+                          <td id = "txtJeanMAuelGenre"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtJKRowlingName"></td>
+                          <td id = "txtJKRowlingGenre"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtWilliamJMannName"></td>
+                          <td id = "txtWilliamJMannGenre"></td>
+                        </tr>                        
+                      </table>                        
+                </div>
+            </div>               
+        </div>
+            <!-- JavaScript for In-N-Out-Books -->
+            <script>
+                // Assign objects to variables.               
+               let favorite1 = {
+                   "isbn": "02648951",
+                   "title": "Clan of the Cave Bear",
+                   "pages": "859"
+               }
+
+               let favorite2 = {
+                   "isbn": "02462187",
+                   "title": "Half Blood Prince",
+                   "pages": "1163"
+               }
+
+               let favorite3 = {
+                   "isbn": "32174145",
+                   "title": "Hello Gorgeous",
+                   "pages": "1394"
+               }
+
+               let favoriteAuthor1 = {"name": "Jean M. Auel", "genre": "Prehistoric Fiction"}
+
+               let favoriteAuthor2 = {"name": "J.K Rowling", "genre": "Fiction"}
+
+               let favoriteAuthor3 = {"name": "William J. Mann", "genre": "Non-Fiction"}
+
+               let books = document.getElementById("favorite-books");
+               let authors = document.getElementById("favorite-authors");
+               // Clear display.
+               books.style.display = "none";
+               authors.style.display = "none";
+               // Populate tables with data.
+               document.getElementById("txtClanOfTheCaveBearISBN").innerHTML = favorite1.isbn;
+               document.getElementById("txtClanOfTheCaveBearTitle").innerHTML = favorite1.title;
+               document.getElementById("txtClanOfTheCaveBearPages").innerHTML = favorite1.pages;
+
+               document.getElementById("txtHalfBloodPrinceISBN").innerHTML = favorite2.isbn;
+               document.getElementById("txtHalfBloodPrinceTitle").innerHTML = favorite2.title;
+               document.getElementById("txtHalfBloodPrincePages").innerHTML = favorite2.pages;
+
+               document.getElementById("txtHelloGorgeousISBN").innerHTML = favorite3.isbn;
+               document.getElementById("txtHelloGorgeousTitle").innerHTML = favorite3.title;
+               document.getElementById("txtHelloGorgeousPages").innerHTML = favorite3.pages;
+
+               document.getElementById("txtJeanMAuelName").innerHTML = favoriteAuthor1.name;
+               document.getElementById("txtJeanMAuelGenre").innerHTML = favoriteAuthor1.genre;
+
+               document.getElementById("txtJKRowlingName").innerHTML = favoriteAuthor2.name;
+               document.getElementById("txtJKRowlingGenre").innerHTML = favoriteAuthor2.genre;
+
+               document.getElementById("txtWilliamJMannName").innerHTML = favoriteAuthor3.name;
+               document.getElementById("txtWilliamJMannGenre").innerHTML = favoriteAuthor3.genre;
+               //Select which table to display.
+               function displayListing() {
+                    let choice = document.getElementById("favoriteList").value;
+                    if (choice == "books") {
+                        authors.style.display = "none";
+                        books.style.display = "block";
+                   
+                    }else if (choice == "authors") {
+                        authors.style.display = "block";
+                        books.style.display = "none";
+                    }
+                    else {
+                        authors.style.display = "none";
+                        books.style.display = "none";
+                    }
+                    
+               }
+
+            </script>
+    </body>
+</html>
