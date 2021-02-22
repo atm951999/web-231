@@ -1,0 +1,40 @@
+/**
+    Title: martin-javazon.css
+    Author: Angela Martin
+    Date: 02/21/2021
+    Description: Styling for WEB 231 martin-javazon.html file.
+ */
+
+/** Styling for the table. */
+table {    
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    text-align: left;    
+}
+
+/** Styling for the table header. */
+th {
+    border: 1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 6px;
+    text-align: left;
+    background-color: #4F3674;  
+    color: white;     
+ }
+
+/** Styling for the table data. */
+td {
+    padding: 6px;
+    border: 1px solid #ddd;
+}
+
+/** Styling for the table row on hover. */
+tr:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+    cursor: pointer;
+}
