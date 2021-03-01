@@ -1,0 +1,120 @@
+<!--
+    Title: martin-alphabet-game.html
+    Author: Angela Martin
+    Date: 02/25/2021
+    Description: Assignment 8.2 html file.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Document Header information. -->
+    <head>
+        <title>WEB 231 â€“ Enterprise JavaScript I</title>        
+        
+        <link href="../global.css" type="text/css" rel="stylesheet">
+        <link href="martin-alphabet-game.css" type="text/css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="description" content="Assignment 8.2 - Alphabet Game">
+        <meta name="author" content="Angela Martin">
+        <meta name="robots" content="nofollow">        
+    </head>
+
+    <body onload="pageLoad()">
+        <!-- This is the application container. -->
+        <div id="container">
+            <!-- H1 Title. -->
+            <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+            <!-- Form container. -->
+            <div id="form-example">
+                <!-- Create card. -->
+                <div class="card">
+                    <!-- Card title. -->
+                    <div class="card-title">Alphabet Number Form</div>
+                        
+                    <div class="card-content">
+
+                        <div class="form">
+
+                            <div class="form-field"> 
+                                <!-- Label information. -->
+                                <label id="form-field">Alphabet Letter Position</label>
+                                <input type="text" id="txtPosition" class="input">
+                            </div>
+                            <div class="form-field">
+                                <!-- Button information. -->
+                                <button onclick="getLetter()" type="button" class="btn btn-primary full-width input" id="btnFindLetter">Find Letter</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                 <br>
+                <!-- Link to the Landing Page. -->
+                <div>
+                    <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
+                </div>
+            </div>            
+        </div>        
+        <!-- Form container. -->
+        <div id="form-results-example">
+            <!-- Create card. -->
+            <div class="card" id="letters">
+                <!-- Card title. -->
+                <div class="card-title">Letters in the Alphabet</div>
+                <!-- Where the results are displayed. -->
+                <div class="card-content" id="alphabet"></div>
+            </div>
+            <div class="card" id="results">
+                <!-- Card title. -->
+                <div class="card-title">Results</div>
+                <!-- Where the results are displayed. -->
+                <div class="card-content" id="alphabet-letter"></div>
+            </div>                       
+        </div>
+    
+        <!-- JavaScript for Alphabet Game -->
+        <script>
+            // Array of all the English letters of the alphabet.
+            let alphabet = [
+                "A", "B", "C", "D", "E", 
+                "F", "G", "H", "I", "J", 
+                "K", "L", "M", "N", "O", 
+                "P", "Q", "R", "S", "T", 
+                "U", "V", "W", "X", "Y", 
+                "Z"
+            ];
+            // String variable named "alphabetOutput".
+            let alphabetOutput = "";
+            // For/in loop to iterate over the "alphabet" array and build a string of the letter in the alphabet separated by a comma.
+            for(letter in alphabet) {
+                alphabetOutput += alphabet[letter] + ", ";
+            }
+            // Output the "alphabetOutput" string to the "alphabet" div.
+            document.getElementById("alphabet").innerHTML = alphabetOutput.slice(0, -2);
+
+            function getLetter() {
+                
+                // Capture input value.
+                let pos = document.getElementById("txtPosition").value;
+                
+                // Attempt to find alphabet letter based upon array index.
+                let letter = alphabet[pos - 1];
+            
+                // Conditional to handle improper input.
+                if (letter != undefined) {
+                    // Output letter to "alphabet-letter" div based upon array index.
+                    return document.getElementById("alphabet-letter").innerHTML =
+                    letter + " is at position " + pos + " in the alphabet";                                        
+                } else if (pos == "") {
+                    return document.getElementById("alphabet-letter").innerHTML = 
+                    "Please enter a number";
+                } else {
+                    // Output error message using "pos" variable.
+                    return document.getElementById("alphabet-letter").innerHTML =
+                    "There are not " + pos + " letters in the alphabet";                     
+                }
+            }
+        </script>
+    </body>
+</html>

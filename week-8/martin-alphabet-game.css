@@ -1,0 +1,17 @@
+/**
+    Title: martin-alphabet-game.css
+    Author: Angela Martin
+    Date: 02/28/2021
+    Description: Styling for WEB 231 martin-alphabet-game.html file.
+ */
+
+ /** Styling for the results id. */
+ #alphabet {
+    text-align: center;
+    font-size: 28px;
+ }
+
+ #alphabet-letter {
+    text-align: center;
+    font-size: 28px;
+ }
