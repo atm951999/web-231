@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+     <!--
+    Title: martin-card-game.html
+    Author: Angela Martin
+    Date: 03/07/2021
+    Description: Assignment 9.2 html file.
+    -->
+    <!-- MATERIAL DESIGN CDN -->
+    <head>
+        <title>WEB 231 - Enterprise JavaScript I</title>
+        
+        <link href="martin-card-game.css" rel="stylesheet"> 
+        <link href="../global.css" rel="stylesheet">      
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">     
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css" rel="stylesheet"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="description" content="WEB 231 – Enterprise JavaScript I">
+        <meta name="author" content="Angela Martin">
+        <meta name="robots" content="nofollow">
+    </head>
+
+    <body>
+        <!-- This is the application container. -->
+        <div id="container">
+			<!-- h1 with a CSS class of app-header and a text value of “Welcome to the Card Game!” -->
+            <h1 class="app-header">Welcome to the Card Game!</h1>
+            <!-- Form container. -->
+            <div id="form-example">
+                <!-- Create card. -->
+                <div class="card">
+                    <!-- card-title with a text value of “Card Dealer” -->
+                    <div class="card-title">Card Dealer</div>
+                        
+                    <div class="card-content">
+
+                        <div class="form" style="width: 100%;">
+                            <div class="form-field">
+                                <!-- Button information. -->
+                                <button onclick="btnDealCards()" type="button" class="btn btn-primary full-width input" style="width: 100%;" id="btnDealCards">Deal Cards</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                 <br>
+                <!-- Link to the Landing Page. -->
+                <div>
+                    <a class="return-home" href="https://atm951999.github.io/web-231/">Return</a>
+                </div>
+            </div>            
+        </div>        
+        <!-- Form container. -->
+        <div id="form-results-example">
+            <!-- Create card. -->
+            <div class="card">
+                <!-- Card title. -->
+                <div class="card-title">Shuffled Cards</div>
+                <!-- Where the results are displayed. -->
+                <div id="player-card"></div>
+            </div>                       
+        </div>
+    
+        <!-- JavaScript for Card Game -->
+        <script>
+            // Create Card class.
+            class Card {
+                constructor() {
+                    this.face = face;
+                    this.suit = suit;
+                }
+            }
+            // Create Dealer class.
+            class Dealer {
+                constructor() {
+                    getDeckOfCards()
+                }
+                CARD_COUNT = 52;
+                cards = [];
+                faces = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+                suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+                // Function to get deck of cards.
+                getDeckOfCards() {
+                    for (card = 0; card < this.CARD_COUNT; card++)
+                        this.cards[card] = new Card(this.faces[count % 13], this.suits[Math.floor(count / 13)]);
+                }
+            }
+            // Shuffle() function.
+            function shuffle() {
+                for(firstCard = 0; firstCard < this.CARD_COUNT; firstCard++) {
+                    firstCard = tempCard;
+                    tempCard = secondCard;
+                    randomCard = Math.floor(Math.random() * this.CARD_COUNT);
+                }
+            }
+
+            function buildPlayingCard(card, suitIcon, faceColor, suitColor) { 
+            // This function will return a string with the following div format: card > card-title > card-content > span 
+            return `<div class="card player-card">
+                        <div class="card-title" style="color: ${faceColor}">${card.face}</div>
+                    </div>
+                    <span class="${suitIcon}" style="color: ${suitColor}"></span>`
+
+            }
+
+            function btnDealCards() {
+                // Create new Dealer object.
+                let dealer = new Dealer();
+                // Call shuffle function.
+                shuffle() 
+                // Create empty array carOutputWithIcon
+                let cardOutputWithIcon = [];
+                // For/of loop to select suit.
+                for (let cards of dealer.cards) {
+                    switch(card.suit) {                            
+                                                    
+                            case "Hearts":
+                                cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-heart", "red", "red");
+                                break                            
+                            
+                            case "Diamonds":
+                                cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-diamonds", "red", "red");
+                                break                            
+                            
+                            case "Clubs":
+                                cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-club", "black", "black");
+                                break                            
+                            
+                            case "Spades":
+                                cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-cards-spade", "black", "black");
+                                break    
+                        }
+                }
+
+                document.getElementById("player-card").innerHTML = cardOutputWithIcon;
+            }
+        </script>
+    </body>
+</html>
